@@ -1,0 +1,18 @@
+name: React Todo App
+
+on:
+  Pull_request:
+    branches: [master]
+
+
+jobs:
+  test_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with: 
+          node-version: 12
+      -run: npm ci
+      -run: expo start
+      -run: expo build
